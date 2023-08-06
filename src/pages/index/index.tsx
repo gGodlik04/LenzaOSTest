@@ -5,8 +5,9 @@ export const PageIndex: FC<IPage> = (props: IPage) => {
     const { title } = props;
 
     return (
-        <>
-
-        </>
+        <div>
+            епта бля хуй
+            
+        </div>
     )
 }
