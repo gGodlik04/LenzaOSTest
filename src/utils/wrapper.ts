@@ -7,4 +7,5 @@ export const wrapper = (method: "post" | "get" | "put" | "delete", url: string, 
     axios.request({method, url, data})
     .then(checkResponse)
     .catch(catchError);
+
 }

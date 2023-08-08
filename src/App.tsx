@@ -1,5 +1,5 @@
 import React from 'react';
-import {PageIndex} from "./pages/index";
+import {PageIndex} from "./pages/index/Dialogs/index";
 
 function App() {
   return (
