@@ -10,7 +10,7 @@ export const fetchChats = () => {
     return async (dispatch: Dispatch<ChatsAction>) => {
         try {
             dispatch({type: ChatsActionTypes.FETCH_CHATS})
-            const response = await axios.get('https://api.lenzaos.com/message.get',{
+            const response = await axios.get('https://api.lenzaos.com/chat.get',{
                 headers:{
                     'Content-Type': 'application/json',
                     'version': '0.0'

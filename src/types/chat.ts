@@ -1,4 +1,3 @@
-import { createAction, createReducer } from "@reduxjs/toolkit";
 
 
 
@@ -12,7 +11,7 @@ export interface IChatState {
 export enum ChatsActionTypes {
     FETCH_CHATS = 'FETCH_CHATS',
     FETCH_CHATS_SUCCESS = 'FETCH_CHATS_SUCCESS',
-    FETCH_CHATS_ERROR = 'FETCH_CHATS_FETCH_CHATS_ERROR',
+    FETCH_CHATS_ERROR = 'FETCH_CHATS_ERROR',
 }
 
 export interface IFetchChatAction {

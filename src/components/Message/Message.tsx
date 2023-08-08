@@ -1,18 +1,17 @@
-import React, {FC, useEffect} from "react";
-import { useDispatch, useSelector } from "react-redux";
+import {FC, useEffect} from "react";
 import type {} from 'redux-thunk/extend-redux';
-import { fetchChats } from "../../store/action-creators/chat";
 import { useTypedSelector } from "../../hooks/useTypedSelector";
-import { IChatItemList } from "../../interface/ChatItemList";
+import { IMessage } from "../../interface/Message";
+import { useActions } from "../../hooks/useActions";
 
-export const ChatItemList: FC<IChatItemList> = (props: IChatItemList) => {
+export const Message: FC<IMessage> = (props: IMessage) => {
     const { title } = props;
-    const {chats, error, loading} = useTypedSelector(state => state.chat)
-    const dispatch = useDispatch()
+    const {message, error, loading} = useTypedSelector(state => state.message)
+    const {fetchMessage} = useActions()
       
 
     useEffect(() => {
-        dispatch(fetchChats()) 
+        fetchMessage()
     }, [])
 
     if (loading) {  
@@ -26,9 +25,10 @@ export const ChatItemList: FC<IChatItemList> = (props: IChatItemList) => {
 
     return (
         <div>
-            {chats.map(chat => {
+            {/* {console.log(message)}; */}
+            {message.map(messages => {
                 return(
-                <div>{chat.title}</div>
+                <div>{messages.id}</div>
                 )
             })}
         </div>

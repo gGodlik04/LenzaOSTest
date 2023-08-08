@@ -4,15 +4,15 @@ import type {} from 'redux-thunk/extend-redux';
 import { fetchChats } from "../../store/action-creators/chat";
 import { useTypedSelector } from "../../hooks/useTypedSelector";
 import { IChatItemList } from "../../interface/ChatItemList";
+import { useActions } from "../../hooks/useActions";
 
 export const ChatItemList: FC<IChatItemList> = (props: IChatItemList) => {
     const { title } = props;
     const {chats, error, loading} = useTypedSelector(state => state.chat)
-    const dispatch = useDispatch()
-      
+    const {fetchChats} = useActions()      
 
     useEffect(() => {
-        dispatch(fetchChats()) 
+        fetchChats()
     }, [])
 
     if (loading) {  
