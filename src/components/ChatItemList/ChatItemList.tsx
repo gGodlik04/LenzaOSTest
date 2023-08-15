@@ -6,6 +6,10 @@ import { useTypedSelector } from "../../hooks/useTypedSelector";
 import { IChatItemList} from "../../interface/ChatItemList";
 import { useActions } from "../../hooks/useActions";
 import { Message } from "../../components/Message/Message";
+import { Header } from "../Header/Header";
+import { activeClassOfChatListItem } from "../../utils/activeClass";
+import { Avatar } from "../Avatar";
+
 
 
 
@@ -15,11 +19,20 @@ export const ChatItemList: FC<IChatItemList> = (props: IChatItemList) => {
     const {fetchChats} = useActions();
     
     const [chatId, setChatId] = useState<string>();
+    const [titleHeader, setTitleHeader] = useState<string>();
+
+    
     
     const loadChatMessages = (event: React.MouseEvent<HTMLDivElement>) : any => {
+
         const {target} = event;
         const chatToId  = chats.filter((elem) => {return elem.title == (target as HTMLButtonElement).innerHTML})
         setChatId(chatToId[0].id);
+
+        activeClassOfChatListItem();
+        setTitleHeader(chatToId[0].title);
+        event.currentTarget.classList.add('active');
+        
     }
     
     useEffect(() => {
@@ -28,8 +41,10 @@ export const ChatItemList: FC<IChatItemList> = (props: IChatItemList) => {
 
     useEffect(() => {
         if (chats.length != 0) {
-            const id = chats[0].id
-            setChatId(id);
+            const activeItem = document.querySelector('.ChatItemList');
+            activeItem?.classList.add('active');
+            setChatId(chats[0].id);
+            setTitleHeader(chats[0].title)
         }
     },[chats])
 
@@ -43,9 +58,13 @@ export const ChatItemList: FC<IChatItemList> = (props: IChatItemList) => {
     }
     return (
         <div>
+            <Header title={titleHeader}/>
             {chats.map(chat => {
                 return(
-                <div onClick={loadChatMessages}>{chat.title}</div>
+                    <div>
+                        <Avatar src={chat.avatar}/>
+                        <div className="ChatItemList" onClick={loadChatMessages}>{chat.title}</div>
+                    </div>
                 )
             })}
                 <Message chatId = {chatId}/>

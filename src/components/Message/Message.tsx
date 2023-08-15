@@ -3,16 +3,12 @@ import type {} from 'redux-thunk/extend-redux';
 import { useTypedSelector } from "../../hooks/useTypedSelector";
 import { IMessage } from "../../interface/Message";
 import { useActions } from "../../hooks/useActions";
-import { Console } from "console";
 
 export const Message: FC<IMessage> = (props: IMessage) => {
     const { title } = props;
     const chatId: string = props.chatId!;
     const {message, error, loading} = useTypedSelector(state => state.message)
     const {fetchMessage} = useActions()
-
-
-    const [fetchIdMessage, setFetchIdMessage] = useState()
       
 
     useEffect(() => {
