@@ -6,11 +6,12 @@ import { MessageAction, MessageActionTypes } from "../../types/message"
 
 
 
-export const fetchMessage = () => {
+export const fetchMessage = (chatId:string) => {
     return async (dispatch: Dispatch<MessageAction>) => {
         try {
+            const url = 'https://api.lenzaos.com/message.get?chat_id=' + chatId + '&offset=0&limit=10';
             dispatch({type: MessageActionTypes.FETCH_MESSAGE})
-            const response = await axios.get('https://api.lenzaos.com/message.get?chat_id=4961bbba-9b9e-4523-ab2a-ecfeeb7a4913&offset=0&limit=5',{
+            const response = await axios.get(url,{
                 headers:{
                     'Content-Type': 'application/json',
                     'version': '0.0'

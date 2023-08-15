@@ -8,6 +8,7 @@ export interface IChatState {
 
 }
 
+
 export enum ChatsActionTypes {
     FETCH_CHATS = 'FETCH_CHATS',
     FETCH_CHATS_SUCCESS = 'FETCH_CHATS_SUCCESS',
