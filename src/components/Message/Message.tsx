@@ -3,11 +3,13 @@ import type {} from 'redux-thunk/extend-redux';
 import { useTypedSelector } from "../../hooks/useTypedSelector";
 import { IMessage } from "../../interface/Message";
 import { useActions } from "../../hooks/useActions";
+import "./message.sass";
+
+
 
 export const Message: FC<IMessage> = (props: IMessage) => {
-    const { title } = props;
-    const chatId: string = props.chatId!;
     const {message, error, loading} = useTypedSelector(state => state.message)
+    const {chatId} = useTypedSelector(state => state.info)
     const {fetchMessage} = useActions()
       
 
@@ -26,7 +28,7 @@ export const Message: FC<IMessage> = (props: IMessage) => {
     }
     
     return (
-        <div>
+        <div className="messages">
             {message.map(messages => {
                 return(
                 <div>{messages.message}</div>

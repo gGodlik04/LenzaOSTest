@@ -1,7 +1,9 @@
 import React, {FC, useEffect} from "react";
 import {IPage} from "../../../interface/page";
 import { ChatItemList } from "../../../components/ChatItemList/ChatItemList";
-
+import '../../../interface.sass'
+import { Header } from "../../../components/Header/Header";
+import { Message } from "../../../components/Message/Message";
 
 
 export const PageIndex: FC<IPage> = (props: IPage) => {
@@ -10,7 +12,9 @@ export const PageIndex: FC<IPage> = (props: IPage) => {
 
     return (
         <div className="PageIndex">
+                <Header/>
                 <ChatItemList/>
+                <Message/>
         </div>
     )
 }

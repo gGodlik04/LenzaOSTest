@@ -9,18 +9,17 @@ import { Message } from "../../components/Message/Message";
 import { Header } from "../Header/Header";
 import { activeClassOfChatListItem } from "../../utils/activeClass";
 import { Avatar } from "../Avatar";
+import "./chatItemList.sass";
+
 
 
 
 
 export const ChatItemList: FC<IChatItemList> = (props: IChatItemList) => {
-    const { title } = props;
-    const {chats, error, loading} = useTypedSelector(state => state.chat);
-    const {fetchChats} = useActions();
-    
-    const [chatId, setChatId] = useState<string>();
-    const [titleHeader, setTitleHeader] = useState<string>();
 
+    const {chats, error, loading} = useTypedSelector(state => state.chat);
+    const {fetchChats, setChatId, setTitle} = useActions();
+    
     
     
     const loadChatMessages = (event: React.MouseEvent<HTMLDivElement>) : any => {
@@ -30,7 +29,7 @@ export const ChatItemList: FC<IChatItemList> = (props: IChatItemList) => {
         setChatId(chatToId[0].id);
 
         activeClassOfChatListItem();
-        setTitleHeader(chatToId[0].title);
+        setTitle(chatToId[0].title);
         event.currentTarget.classList.add('active');
         
     }
@@ -41,10 +40,10 @@ export const ChatItemList: FC<IChatItemList> = (props: IChatItemList) => {
 
     useEffect(() => {
         if (chats.length != 0) {
-            const activeItem = document.querySelector('.ChatItemList');
+            const activeItem = document.querySelector('.chatItemList__item');
             activeItem?.classList.add('active');
             setChatId(chats[0].id);
-            setTitleHeader(chats[0].title)
+            setTitle(chats[0].title);
         }
     },[chats])
 
@@ -57,17 +56,16 @@ export const ChatItemList: FC<IChatItemList> = (props: IChatItemList) => {
         return <h3>{error}</h3>
     }
     return (
-        <div>
-            <Header title={titleHeader}/>
+        <div className="chatItemList">
+            <h1>All chats</h1>
             {chats.map(chat => {
                 return(
-                    <div>
+                    <div className="chatItemlist-wrapper"> 
                         <Avatar src={chat.avatar}/>
-                        <div className="ChatItemList" onClick={loadChatMessages}>{chat.title}</div>
+                        <div className="chatItemList__item" onClick={loadChatMessages}>{chat.title}</div>
                     </div>
                 )
             })}
-                <Message chatId = {chatId}/>
         </div>
     )
 }
