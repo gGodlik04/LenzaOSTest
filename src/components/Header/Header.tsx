@@ -12,7 +12,6 @@ export const Header: FC<IHeader> = (props: IHeader) => {
     const {title} = useTypedSelector(state => state.info)
 
     useEffect(() => {
-        console.log(title);
     },[])
     
     if (loading) {  
