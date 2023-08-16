@@ -14,7 +14,6 @@ export const Message: FC<IMessage> = (props: IMessage) => {
       
 
     useEffect(() => {
-        console.log(chatId)
         if (chatId){fetchMessage(chatId)}
     },[chatId])
     
@@ -31,7 +30,7 @@ export const Message: FC<IMessage> = (props: IMessage) => {
         <div className="messages">
             {message.map(messages => {
                 return(
-                <div>{messages.message}</div>
+                <div key={messages.id}>{messages.message}</div>
                 )
             })}
         </div>

@@ -12,6 +12,7 @@ export const PageIndex: FC<IPage> = (props: IPage) => {
 
     return (
         <div className="PageIndex">
+                <div className="pageIndex-title">All chats</div>
                 <Header/>
                 <ChatItemList/>
                 <Message/>
