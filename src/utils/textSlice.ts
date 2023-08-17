@@ -1,5 +1,5 @@
 export const textSlice = (text: string, maxLength: number) => {
-    if (maxLength == 65 && text.length >= 65)
+    if (maxLength == 60 && text.length >= 60)
         {
             return text.slice(0, maxLength) + '...';
         }

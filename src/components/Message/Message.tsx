@@ -37,10 +37,9 @@ export const Message: FC<IMessage> = (props: IMessage) => {
     return (
         <div className="messages">
             {message.slice().reverse().map((messages, i) => {
-                console.log(dayjs(messages.created_at))
                 if (i == 0) {
                     return (
-                        <div>
+                        <div className="messages-flex">
                             <SystemMessage date={messages.created_at} />
                             <MessageBlock my={messages.user.you} messageIn={messages} />
                         </div>
@@ -48,13 +47,13 @@ export const Message: FC<IMessage> = (props: IMessage) => {
                 } else if ((Number(messages.created_at) - Number(message[message.length - i].created_at)) <= 86400) {
                     if (message[message.length - i].user.id == messages.user.id) {
                         return (
-                            <div>
+                            <div className="messages-flex">
                                 <MessageBlock my={messages.user.you} main={true} messageIn={messages} />
                             </div>
                         )
                     } else {
                         return (
-                            <div>
+                            <div className="messages-flex">
                                 <MessageBlock my={messages.user.you} main={false} messageIn={messages} />
                             </div>
                         )
@@ -62,20 +61,16 @@ export const Message: FC<IMessage> = (props: IMessage) => {
                 } else {
                     if (message[message.length - i].user.id == messages.user.id) {
                         return (
-                            <div>
-                                <div>
-                                    <SystemMessage date={messages.created_at} />
-                                    <MessageBlock my={messages.user.you} main={true} messageIn={messages} />
-                                </div>
+                            <div className="messages-flex">
+                                <SystemMessage date={messages.created_at} />
+                                <MessageBlock my={messages.user.you} main={true} messageIn={messages} />
                             </div>
                         )
                     } else {
                         return (
-                            <div>
-                                <div>
-                                    <div>{dayjs(Number(messages.created_at) * 1000).format()}</div>
-                                    <MessageBlock my={messages.user.you} main={false} messageIn={messages} />
-                                </div>
+                            <div className="messages-flex">
+                                <SystemMessage date={messages.created_at} />
+                                <MessageBlock my={messages.user.you} main={false} messageIn={messages} />
                             </div>
                         )
                     }
