@@ -13,6 +13,22 @@ export const MessageBlock: FC<IMessageBlock> = (props: IMessageBlock) => {
     const { my, main, messageIn } = props
 
 
+    if(my && (typeof(messageIn) == 'string')){
+        return (
+            <div className="Message-my">
+                <div className="Message-my__text" >{messageIn}</div>
+                <div className="Message-my__date" >{dayjs().format('HH:mm')}</div>
+                <div className="Message-my__svg">
+                    <HandySvg
+                        src={ReadSvg.toString()}
+                        width="16"
+                        height="10"
+                    />
+                </div>
+            </div>
+        )
+    }
+
     if (my) {
         return (
             <div className="Message-my" key={messageIn.id}>

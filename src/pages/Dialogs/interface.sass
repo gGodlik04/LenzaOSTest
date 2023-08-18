@@ -1,0 +1,33 @@
+*
+    margin: 0
+    padding: 0
+    box-sizing: border-box
+    color:#201F1E
+
+body
+    background-color: #FFFFFF
+    height: 100vh
+
+.root 
+    height: 100vh
+
+.PageIndex
+    display: grid
+    grid-template-rows: 0.5fr 80vh 10vh
+    grid-template-columns: 1fr 3fr
+    grid-template-areas: "title header" "chat message" "chat input"
+
+.pageIndex-title
+    grid-area: title
+
+::-webkit-scrollbar
+    width: 5px
+    background-color: #F3F3F3
+
+::-webkit-scrollbar-thumb
+    background-color:  #E0EAF6
+
+.pageIndex-title
+    font-family: latoRegular
+
+

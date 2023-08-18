@@ -27,7 +27,7 @@ export const Header: FC<IHeader> = (props: IHeader) => {
                 width="24"
                 height="24"
             />
-            {title}
+            <div>{title}</div>
         </div>
     )
 }
