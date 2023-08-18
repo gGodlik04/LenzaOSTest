@@ -1,19 +1,13 @@
-import React, { FC, HTMLProps, createContext, useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { FC, useEffect } from "react";
 import type { } from 'redux-thunk/extend-redux';
-import { fetchChats } from "../../store/action-creators/chat";
 import { useTypedSelector } from "../../hooks/useTypedSelector";
 import { IChatItemList } from "../../interface/ChatItemList";
 import { useActions } from "../../hooks/useActions";
-import { Message } from "../../components/Message/Message";
-import { Header } from "../Header/Header";
 import { activeClassOfChatListItem } from "../../utils/activeClass";
 import { Avatar } from "../Avatar";
 import "./chatItemList.sass";
 import { textSlice } from "../../utils/textSlice";
-import dayjs from 'dayjs'
-import { Node } from "typescript";
-import { HandySvg } from "handy-svg";
+import dayjs from 'dayjs';
 
 
 

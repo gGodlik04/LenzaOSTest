@@ -4,8 +4,6 @@ import './input.sass'
 import buttonSubmitSvg from "../../svg/buttonSubmit.svg"
 import clipSvg from "../../svg/clip.svg"
 import { HandySvg } from "handy-svg";
-import { MessageBlock } from "../Message/MessageBlock";
-import { useTypedSelector } from "../../hooks/useTypedSelector";
 import { useActions } from "../../hooks/useActions";
 
 

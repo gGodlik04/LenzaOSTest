@@ -8,11 +8,3 @@
     font-family: 'LatoRegular';
     src: local('LatoRegular'), url(../../fonts/Lato-Regular.ttf) format('truetype');
 }
-
-@mixin latoBold{
-    font-family: 'LatoBold';
-}
-
-@mixin latoRegular{
-    font-family: 'LatoRegular';
-}

@@ -1,7 +1,4 @@
 
-
-
-
 export interface IMessageState {
     message: any[];
     loading: boolean;

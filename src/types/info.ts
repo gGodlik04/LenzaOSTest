@@ -1,6 +1,4 @@
 
-
-
 export interface IInfo {
     title: string;
     chatId: string;
