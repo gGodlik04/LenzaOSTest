@@ -16,10 +16,12 @@ import dayjs from 'dayjs';
 export const ChatItemList: FC<IChatItemList> = (props: IChatItemList) => {
     
     const { chats, error, loading } = useTypedSelector(state => state.chat);
-    const { fetchChats, setChatId, setTitle } = useActions();
+    const { fetchChats, setChatId, setTitle, clearArray } = useActions();
     
 
     const loadChatMessages = (event: React.MouseEvent<HTMLDivElement>): any => {
+
+        clearArray();
 
         const chatToId = chats.filter((elem) => { return elem.id == event.currentTarget.accessKey })
         setChatId(event.currentTarget.accessKey);

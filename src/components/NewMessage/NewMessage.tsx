@@ -10,6 +10,7 @@ export const NewMessage: FC<INewMessage> = (props: INewMessage) => {
 
     return(
         <div className="NewMessage">
+            Новове сообщение
         </div>
     )
 }   

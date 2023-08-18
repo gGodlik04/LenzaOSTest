@@ -21,7 +21,6 @@ export default createReducer (initialState, builder => {
 
         .addCase(InfoActionTypes.SET_TITLE, (state, action: ISetTitleAction) => {
             state.title = action.payload; 
-            
         })
 
 }) 

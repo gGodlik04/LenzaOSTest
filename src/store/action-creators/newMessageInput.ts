@@ -1,5 +1,5 @@
 import { Dispatch } from "@reduxjs/toolkit"
-import { ISetNewMessageInputTextAction, NewMessageInputActionTypes } from "../../types/newMessageInput"
+import { IDeleteNewMessageInputTextAction, ISetNewMessageInputTextAction, NewMessageInputActionTypes } from "../../types/newMessageInput"
 
 
 
@@ -10,6 +10,14 @@ export const newMessageInput = (text: string) => {
             dispatch({type: NewMessageInputActionTypes.SET_TEXT, payload: text})
     }
 }
+
+export const clearArray = () => {
+    return (dispatch: Dispatch<IDeleteNewMessageInputTextAction>) => {
+            dispatch({type: NewMessageInputActionTypes.DELETE})
+    }
+}
+
+
 
 
 

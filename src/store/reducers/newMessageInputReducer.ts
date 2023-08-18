@@ -1,5 +1,5 @@
 import { createReducer } from "@reduxjs/toolkit"
-import { INewMessageInput, ISetNewMessageInputTextAction, NewMessageInputActionTypes } from "../../types/newMessageInput";
+import { IDeleteNewMessageInputTextAction, INewMessageInput, ISetNewMessageInputTextAction, NewMessageInputActionTypes } from "../../types/newMessageInput";
 
 
 
@@ -16,6 +16,10 @@ export default createReducer (initialState, builder => {
 
         .addCase(NewMessageInputActionTypes.SET_TEXT, (state, action: ISetNewMessageInputTextAction) => {
             state.textOfMessage.push(action.payload);
+        })
+
+        .addCase(NewMessageInputActionTypes.DELETE, (state, action: IDeleteNewMessageInputTextAction) => {
+            state.textOfMessage.length=0;
         })
 
 

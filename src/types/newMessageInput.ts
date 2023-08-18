@@ -4,6 +4,7 @@ export interface INewMessageInput {
 
 export enum NewMessageInputActionTypes {
     SET_TEXT = 'SET_TEXT',
+    DELETE = 'DELETE',
 }
 
 export interface ISetNewMessageInputTextAction {
@@ -11,8 +12,12 @@ export interface ISetNewMessageInputTextAction {
     payload: string
 }
 
+export interface IDeleteNewMessageInputTextAction {
+    type: NewMessageInputActionTypes.DELETE;
+}
 
 
 
 
-export type NewMessageInputAction = ISetNewMessageInputTextAction 
+
+export type NewMessageInputAction = ISetNewMessageInputTextAction | IDeleteNewMessageInputTextAction
